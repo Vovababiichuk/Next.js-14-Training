@@ -1,16 +1,18 @@
 // useParams допоможе зловити параметр динамічної сторінки id
-'use client'
+'use client';
 
-import { useParams } from "next/navigation"
+import { useParams, useRouter } from 'next/navigation';
 
 export default function ProfileId() {
-	const params = useParams();
-	console.log(params.id);
+  const params = useParams();
+  const router = useRouter();
+	console.log(router)
 
+  return (
+    <div>
+      <div className="p-6 text-3xl">Profile page id: {params.id}</div>
 
-	return (
-		<div className='p-6 text-3xl'>
-			ID Dynamic Page
-		</div>
-	)
+      <button onClick={() => router.back()}>Back</button>
+    </div>
+  );
 }
